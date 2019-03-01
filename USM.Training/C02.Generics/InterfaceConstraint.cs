@@ -8,16 +8,8 @@ namespace C02.Generics
 {
     public interface IPhoneNumber
     {
-        string Number
-        {
-            get;
-            set;
-        }
-        string Name
-        {
-            get;
-            set;
-        }
+        string Number {get; set;}
+        string Name {get; set;}
     }
 
     // A class of phone numbers for friends.
