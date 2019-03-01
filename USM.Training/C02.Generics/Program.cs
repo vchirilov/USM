@@ -11,7 +11,9 @@ namespace C02.Generics
         static void Main(string[] args)
         {
             //SimpleGenericsClass.Start();
-            TwoGenericParameters.Start();
+            //TwoGenericParameters.Start();
+            //BaseClassConstraint.Start();
+            InterfaceConstraint.Start();
 
             Console.WriteLine("Done");
             Console.ReadKey();

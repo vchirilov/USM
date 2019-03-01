@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClassConstraint.cs" />
+    <Compile Include="InterfaceConstraint.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleGenericsClass.cs" />
-    <Compile Include="TwogenericParameters.cs" />
+    <Compile Include="TwoGenericParameters.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
