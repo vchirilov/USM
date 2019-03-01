@@ -122,6 +122,7 @@ namespace C02.Generics
                 Console.WriteLine("Not Found");
             }
             Console.WriteLine();
+            
             // The following code is also OK because Supplier
             // implements IPhoneNumber.
             PhoneList<Supplier> plist2 = new PhoneList<Supplier>();
