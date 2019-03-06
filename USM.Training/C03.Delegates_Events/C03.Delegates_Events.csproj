@@ -47,9 +47,13 @@
     <Compile Include="AnonymousMethodParams.cs" />
     <Compile Include="AnonymousMethod.cs" />
     <Compile Include="Introduction.cs" />
+    <Compile Include="LambdaExpressions.cs" />
     <Compile Include="Multicasting.cs" />
+    <Compile Include="MulticastingEvents.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleEvent.cs" />
+    <Compile Include="StatementLambdas.cs" />
     <Compile Include="UsingInstanceMethod.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

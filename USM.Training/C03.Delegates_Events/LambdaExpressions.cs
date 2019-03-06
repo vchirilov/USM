@@ -1,15 +1,4 @@
-//*********************************************************************
-//Lambda expression is nothing else just an alternative to the anonymous method
-//A lambda expression is the second way that an anonymous function can be created.
-//*********************************************************************
-
-//*********************************************************************
-//C# supports two types of lambda expressions: expression lambda and statement lambda
-//*********************************************************************
-
-//Expression Lambdas
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,5 +46,3 @@ namespace C03.Delegates_Events.nm06
         }
     }
 }
-
-
