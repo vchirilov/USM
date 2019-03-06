@@ -14,13 +14,13 @@ namespace C02.Generics
     {
         static void Main(string[] args)
         {
-            SimpleGenericsClass.Start();
+            //SimpleGenericsClass.Start();
             //TwoGenericParameters.Start();
             //BaseClassConstraint.Start();
             //InterfaceConstraint.Start();
             //ConstructorConstraint.Start();
             //TypeConstraint.Start();
-            //GenericMethod.Start();
+            GenericMethod.Start();
             //GenericInterface.Start();
 
             Console.WriteLine("Done");

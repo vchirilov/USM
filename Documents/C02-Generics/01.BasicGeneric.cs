@@ -49,6 +49,8 @@ namespace C02.Generics
             int value = obj.GetOb();
             Console.WriteLine("value: " + value);
             Console.WriteLine();
+			
+			
             
             // Create a Gen object for strings.
             Gen<string> strOb = new Gen<string>("Generics is something cool.");

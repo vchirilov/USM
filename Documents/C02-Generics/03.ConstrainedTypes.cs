@@ -63,7 +63,7 @@ namespace C02.Generics
 
             t2.SayHello();
             // The following is invalid because Motobyke does not inherit BaseCar.
-            // Test<C> t3 = new Test<C>(c); // Error!
+            // Test<BaseCar> t3 = new Test<BaseCar>(c); // Error!
             // t3.SayHello(); // Error!
         }
 

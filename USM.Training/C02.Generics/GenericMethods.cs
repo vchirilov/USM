@@ -46,7 +46,7 @@ namespace C02.Generics.GenericMethods
             Console.WriteLine();
             
             // Operate on an int array.
-            ArrayUtils.CopyInsert(99, 2, nums, nums2);
+            ArrayUtils.CopyInsert<int>(99, 2, nums, nums2);
             
             // Display contents of nums2.
             Console.Write("Contents of nums2: ");
@@ -67,7 +67,7 @@ namespace C02.Generics.GenericMethods
             Console.WriteLine();
             
             // Insert into a string array.
-            ArrayUtils.CopyInsert("in C#", 1, strs, strs2);
+            ArrayUtils.CopyInsert<string>("in C#", 1, strs, strs2);
             
             // Display contents of strs2.
             Console.Write("Contents of strs2: ");

@@ -27,7 +27,7 @@ namespace C02.Generics
     {
         public static void Start()
         {
-            Sister<MyClass> x = new Sister<MyClass>();
+            Sister<MyClass> x = new Sister<MyClass>();            
         }
     }
 }

@@ -52,9 +52,9 @@ namespace C02.Generics
             Test<Toyota> t2 = new Test<Toyota>(b);
 
             t2.SayHello();
-            // The following is invalid because Motobyke does not inherit BaseCar.
-            // Test<C> t3 = new Test<C>(c); // Error!
-            // t3.SayHello(); // Error!
+            //The following is invalid because Motobyke does not inherit BaseCar.
+            //Test<Motobyke> t3 = new Test<Motobyke>(c); // Error!
+            //t3.SayHello(); // Error!
         }
 
     }
