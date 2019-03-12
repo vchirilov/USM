@@ -1,4 +1,8 @@
-﻿using System;
+﻿using C04.Reflections_nm01;
+using C04.Reflections_nm02;
+using C04.Reflections_nm03;
+using C04.Reflections_nm04;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +14,12 @@ namespace C04.Reflections
     {
         static void Main(string[] args)
         {
-            RttiWithIs.Start();
+            //RttiWithIs.Start();
+            //RttiWithAs.Start();
+            //SimpleTypeofExample.Start();
+            //ReflectionDemo.Start();
+            //CallingMethodsUsingReflection.Start();
+            TypeConstructors.Start();
 
             Console.ReadKey();
         }

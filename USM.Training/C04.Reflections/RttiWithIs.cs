@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace C04.Reflections
+namespace C04.Reflections_nm01
 {
     class A { }
+
     class B : A { }
+
     class RttiWithIs
     {
         public static void Start()

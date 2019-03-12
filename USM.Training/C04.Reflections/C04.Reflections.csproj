@@ -43,9 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CallingMethodsUsingReflection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReflectionDemo.cs" />
+    <Compile Include="RttiWithAs.cs" />
     <Compile Include="RttiWithIs.cs" />
+    <Compile Include="SimpleTypeofExample.cs" />
+    <Compile Include="TypeConstructors.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
