@@ -17,7 +17,16 @@ namespace C06.LINQ
             //Filter.RunFilterComplexObject();
             //ComplexFilters.RunComplexFilter();
             //Projections.RunProjectionExample();
-            Projections.RunLetExample();
+            //Projections.RunLetExample();
+            //Joins.RunSimpleJoin();
+            //Sorting.Start();
+            //Sets.RunExcept();
+            //Sets.RunIntersect();
+            //Sets.RunUnion();
+            //Sets.RunDistinct();
+            //Agregations.RunSum();
+            //Agregations.RunMinMaxAvg();
+            Grouping.RunGroup();
 
             Console.ReadKey();
         }
