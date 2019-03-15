@@ -10,7 +10,7 @@ namespace C06.LINQ
     {
         static void Main(string[] args)
         {
-            //Introduction.Start1();
+            Introduction.Start1();
             //Introduction.Start2();
             //ExtendedMethods.Start();
             //Filter.RunSimpleFilter();
@@ -26,7 +26,7 @@ namespace C06.LINQ
             //Sets.RunDistinct();
             //Agregations.RunSum();
             //Agregations.RunMinMaxAvg();
-            Grouping.RunGroup();
+            //Grouping.RunGroup();
 
             Console.ReadKey();
         }
