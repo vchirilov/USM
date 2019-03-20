@@ -48,9 +48,12 @@
     <Compile Include="AsyncWithResultTaskT.cs" />
     <Compile Include="AsyncWithResultTask.cs" />
     <Compile Include="AsyncWithResultVoid.cs" />
+    <Compile Include="DemoLambdaTask.cs" />
+    <Compile Include="DemoTask.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleAsyncProgramm.cs" />
+    <Compile Include="WaitingTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
