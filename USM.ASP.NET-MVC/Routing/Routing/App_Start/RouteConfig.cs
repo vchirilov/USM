@@ -18,6 +18,22 @@ namespace Routing
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+
+            //[Using Static URL Segments]
+
+            //routes.MapRoute(
+            //    name: "Default1",
+            //    url: "Public/{controller}/{action}",
+            //    defaults: new { controller = "Home", action = "Index" }
+            //    );
+
+            //routes.MapRoute(
+            //    name: "Default2",
+            //    url: "X{controller}/{action}",
+            //    defaults: new { controller = "Home", action = "Index" }
+            //);
+
         }
     }
 }
