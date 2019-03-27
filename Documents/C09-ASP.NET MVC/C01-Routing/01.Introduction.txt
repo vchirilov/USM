@@ -1,0 +1,40 @@
+The routing system has two functions:
+1-Examine an incoming URL and figure out for which controller and action therequest is intended.
+2-Generate outgoing URLs.
+
+URLs can be broken down into segments. These are the parts of the URL, excluding the hostname and query string, that are separated by the / character. 
+
+In this example http://mysite.com/Admin/Index, there are two segments
+Admin - First Segment
+Index - Second Segment
+
+Having this pattern in RoueConfig.cs url: "{controller}/{action}/{id}" => controller = Admin, action = Index
+
+An MVC application will usually have several routes and the routing system will compare the incoming URL to the URL pattern of each route until it finds a match.
+By default, a URL pattern will match any URL that has the correct number of segments.
+
+Request URL Segment Variables
+http://mysite.com/Admin/Index controller = Admin action = Index
+http://mysite.com/Index/Admin controller = Index action = Admin
+http://mysite.com/Apples/Oranges controller = Apples action = Oranges
+
+http://mysite.com/Admin No match—too few segments 
+http://mysite.com/Admin/Index/Soccer No match—too many segments
+
+
+[Creating and Registering a Simple Route]
+
+routes.MapRoute(
+	name: "Default",
+	url: "{controller}/{action}/{id}",
+	defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+);
+
+name is optional
+url defines the URL pattern
+defaults is the default values for controller and action
+
+
+[Using Static URL Segments]
+
+Not all of the segments in a URL pattern need to be variables. You can also create patterns that have static segments.
