@@ -10,6 +10,17 @@ When you create a controller by deriving from the Controller base class, you get
 a set of convenience properties to access informationabout the request. 
 These properties include Request, Response, RouteData, HttpContext, and Server
 
-(have a look at ControllerContext.png)
+(Analyze in details ControllerContext.png)
 
 *****************************************************************************/
+
+public ActionResult Info()
+{
+	var queryString = Request.QueryString;
+	var cookies = Request.Cookies;
+
+	ViewBag.QueryString = queryString.ToString();
+	ViewBag.Cookies = cookies.ToString();
+
+	return View();
+}
