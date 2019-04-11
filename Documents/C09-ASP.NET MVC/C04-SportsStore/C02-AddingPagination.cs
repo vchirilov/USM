@@ -183,8 +183,19 @@ DIV.pager A.selected { background-color: #353535; color: White; }
 
 
 //Now we need to update Views/Products/List.cshtml so that it uses the partial view.
+@using SportsStore.WebUI.HtmlHelpers
+@model SportsStore.WebUI.Models.ProductsListViewModel
 
-
+@{
+    ViewBag.Title = "Products";
+}
+@foreach (var p in Model.Products)
+{
+    Html.RenderPartial("ProductSummary", p);
+}
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>
 
 
 
