@@ -1,4 +1,6 @@
-﻿using SportsStore.Models.Abstract;
+﻿using SportsStore.Models;
+using SportsStore.Models.Abstract;
+using SportsStore.Models.Entities;
 using SportsStore.WebUI.Models;
 using System;
 using System.Collections.Generic;
@@ -33,6 +35,33 @@ namespace SportsStore.WebUI.Controllers
             };
 
             return View(model);
+        }
+
+
+        // GET: Create/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Create/Create
+        [HttpPost]
+        public ActionResult Create(Product product)
+        {
+            try
+            {
+                using (var context = new SportsStoreContext())
+                {
+                    context.Products.Add(product);
+                    context.SaveChanges();
+                }
+
+                return RedirectToAction("List");
+            }
+            catch
+            {
+                return View();
+            }
         }
 
     }
