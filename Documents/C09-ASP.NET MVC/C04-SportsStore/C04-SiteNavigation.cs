@@ -98,3 +98,48 @@ public class RouteConfig
 //Now run the application with these URLs: 
 //http://localhost:59058/Page1
 //http://localhost:59058//Chees/Page1
+
+
+//Building a Category Navigation Menu
+
+//The ASP.NET MVC Framework has the concept of child actions. A child action relies on the HTML helper method called RenderAction, 
+//which lets you include the output from an arbitrary action method in the current view.
+
+//Create a new controller called NavController
+
+
+namespace SportsStore.WebUI.Controllers
+{
+    public class NavController : Controller
+    {
+        public string Menu()
+        {
+            return "Hello from NavController";
+        }
+    }
+}
+
+//An action can be triggered from the view by using helper method @Html.RenderAction()
+//Let's update layout page like this
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+        <div class="title">SPORTS STORE</div>
+    </div>
+    <div id="categories">
+        @{ Html.RenderAction("Menu", "Nav"); } // this piece of code
+    </div>
+    <div id="content">
+        @RenderBody()
+    </div>
+</body>
+</html> 
+
