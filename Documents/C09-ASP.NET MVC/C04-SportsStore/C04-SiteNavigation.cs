@@ -143,3 +143,95 @@ namespace SportsStore.WebUI.Controllers
 </body>
 </html> 
 
+//Now, update NavController with the code below
+
+namespace SportsStore.WebUI.Controllers
+{
+    public class NavController : Controller
+    {
+        private IProductRepository repository;
+
+        public NavController(IProductRepository repository)
+        {
+            this.repository = repository;
+        }
+
+        public PartialViewResult Menu()
+        {
+            IEnumerable<string> categories = repository.Products
+            .Select(x => x.Category)
+            .Distinct()
+            .OrderBy(x => x);
+
+            return PartialView(categories);
+        }
+    }
+}
+
+//Now, create a partial view for action Menu
+@model IEnumerable<string>
+
+@Html.ActionLink("Home", "List", "Product")
+
+@foreach (var item in Model)
+{
+    @Html.RouteLink(item, new { controller = "Product", action = "List", category = item, page = 1 })
+}
+
+//Run the application. The links we generate looks pretty ugly isn't it?
+//Append the styles below to /Content/Site.css
+
+DIV#categories A {
+    font: bold 1.1em "Arial Narrow","Franklin Gothic Medium",Arial;
+    display: block;
+    text-decoration: none;
+    padding: .6em;
+    color: Black;
+    border-bottom: 1px solid silver;
+}
+
+    DIV#categories A.selected {
+        background-color: #666;
+        color: White;
+    }
+
+    DIV#categories A:hover {
+        background-color: #CCC;
+    }
+
+    DIV#categories A.selected:hover {
+        background-color: #666;
+    }
+	
+//Now, let's highlight selected category in the side bar menu.
+//Update Menu action with this code
+ public PartialViewResult Menu(string category = null)
+{
+	IEnumerable<string> categories = repository.Products
+	.Select(x => x.Category)
+	.Distinct()
+	.OrderBy(x => x);
+
+	ViewBag.SelectedCategory = category; // this piece of code
+
+	return PartialView(categories);
+}
+
+//Update Menu partial view
+@model IEnumerable<string>
+
+@Html.ActionLink("Home", "List", "Product")
+
+@foreach (var item in Model)
+{
+    @Html.RouteLink(
+    item, 
+    new { controller = "Product", action = "List", category = item, page = 1 }, 
+    new { @class = item == ViewBag.SelectedCategory ? "selected" : null })   
+}
+
+
+//Run the application.
+
+
+
