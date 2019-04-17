@@ -52,6 +52,7 @@
     <Compile Include="Abstract\EFProductRepository.cs" />
     <Compile Include="Abstract\IProductRepository.cs" />
     <Compile Include="Abstract\ProductRepository.cs" />
+    <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SportsStoreContext.cs" />

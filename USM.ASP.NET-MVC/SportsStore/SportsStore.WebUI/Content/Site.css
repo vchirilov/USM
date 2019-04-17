@@ -125,3 +125,38 @@ DIV#categories A {
     DIV#categories A.selected:hover {
         background-color: #666;
     }
+
+FORM {
+    margin: 0;
+    padding: 0;
+}
+
+DIV.item FORM {
+    float: right;
+}
+
+DIV.item INPUT {
+    color: White;
+    background-color: #333;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+H2 {
+    margin-top: 0.3em
+}
+
+TFOOT TD {
+    border-top: 1px dotted gray;
+    font-weight: bold;
+}
+
+.actionButtons A, INPUT.actionButtons {
+    font: .8em Arial;
+    color: White;
+    margin: .5em;
+    text-decoration: none;
+    padding: .15em 1.5em .2em 1.5em;
+    background-color: #353535;
+    border: 1px solid black;
+}
