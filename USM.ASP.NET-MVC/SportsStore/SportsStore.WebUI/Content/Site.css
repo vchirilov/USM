@@ -178,3 +178,9 @@ DIV#cart {
         color: White;
         border: 1px solid black;
     }
+
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}

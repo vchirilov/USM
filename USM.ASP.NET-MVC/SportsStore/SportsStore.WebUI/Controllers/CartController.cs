@@ -49,6 +49,27 @@ namespace SportsStore.WebUI.Controllers
             var cart = GetCart();
             return PartialView(cart);
         }
+            
+        [HttpGet]
+        public ViewResult Checkout()
+        {
+            return View(new ShippingDetails());
+        }
+
+        [HttpPost]
+        public ViewResult Checkout(ShippingDetails details)
+        {
+            if (ModelState.IsValid)
+            {
+                //Save to database
+            }
+            else
+            {
+                return View(details);
+            }
+
+            return View("Thanks");
+        }
 
 
         private Cart GetCart()
