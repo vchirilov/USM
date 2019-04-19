@@ -205,3 +205,62 @@ TFOOT TD {
     background-color: #353535;
     border: 1px solid black;
 }
+
+
+//Remove item from cart as homework :)
+
+//Adding the Cart Summary
+//In order to see summary the user has to add an item in the card to see overall information
+//Let's implement a summary widget
+
+//Add a new action in the Card controller
+public PartialViewResult Summary()
+{
+	var cart = GetCart();
+	return PartialView(cart);
+}
+
+
+//Add view for action Summary
+@model SportsStore.Models.Entities.Cart
+<div id="cart">
+    <span class="caption">
+        <b>Your cart:</b>
+        @Model.Lines.Sum(x => x.Quantity) item(s),
+        @Model.ComputeTotalValue().ToString("c")
+    </span>
+    @Html.ActionLink("Checkout", "Index", "Cart",
+    new { returnUrl = Request.Url.PathAndQuery }, null)
+</div>
+
+//Include this partial view in the _Layout.cshtm 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+        @{Html.RenderAction("Summary", "Cart");} //this piece of code to be addded
+        <div class="title">SPORTS STORE</div>
+    </div>
+    <div id="categories">
+        @{ Html.RenderAction("Menu", "Nav"); }
+    </div>
+    <div id="content">
+        @RenderBody()
+    </div>
+</body>
+</html>
+
+//Append some CSS to style the page to Content/Site.css
+
+DIV#cart { float:right; margin: .8em; color: Silver;
+background-color: #555; padding: .5em .5em .5em 1em; }
+DIV#cart A { text-decoration: none; padding: .4em 1em .4em 1em; line-height:2.1em;
+margin-left: .5em; background-color: #333; color:White; border: 1px solid black;}
+
