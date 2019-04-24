@@ -62,3 +62,25 @@ DIV.Message {
 .validation-summary-valid {
     display: none;
 }
+
+
+.editor-field {
+    margin-bottom: .8em;
+}
+
+.editor-label {
+    font-weight: bold;
+}
+
+    .editor-label:after {
+        content: ":"
+    }
+
+.text-box {
+    width: 25em;
+}
+
+.multi-line {
+    height: 5em;
+    font-family: Segoe UI, Verdana;
+}

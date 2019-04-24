@@ -142,3 +142,152 @@ DIV.Message { background: gray; color:White; padding: .2em; margin-top:.25em; }
 
 
 //As you see we have all operations in place as add new product, get details and delete a product.
+
+
+//Editing Products
+//Now, let's add Edit controller
+public ViewResult Edit(int productId)
+{
+	Product product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
+	return View(product);
+}
+
+//Create Edit View. There are several methods for creating Edit view 
+//First - By using scaffolding from Visual Studio
+//Second - By using special helper method @Html.EditForModel()
+
+@model SportsStore.Models.Entities.Product
+@{
+    ViewBag.Title = "Admin: Edit " + @Model.Name;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>Edit @Model.Name</h1>
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel and return to List", "Index")
+}
+
+//Run the application
+
+//@Html.EditForModel() is handy because it uses a single line of code to generate all elements, however the result is quite ugly 
+//and ProductId which should be a hidden field is actually shown.
+
+//You can use "model metadata" in order to generate fields more accuratelly.
+ public class Product
+{
+	[HiddenInput(DisplayValue = false)] //this attribute (this requires package Microsoft.asp.net mvc)
+	public int ProductID { get; set; }
+
+	public string Name { get; set; }
+
+	[DataType(DataType.MultilineText)] //this attribute
+	public string Description { get; set; }
+
+	public decimal Price { get; set; }
+
+	public string Category { get; set; }
+}
+
+//Run the application
+
+//Let'sadd some CSS to Admin.css file to improve appearance
+
+.editor-field { margin-bottom: .8em; }
+.editor-label { font-weight: bold; }
+.editor-label:after { content: ":" }
+.text-box { width: 25em; }
+.multi-line { height: 5em; font-family: Segoe UI, Verdana; }
+
+//Updating the Product Repository
+//Now, repository has no method for saving new or updated products. Let's add this possibility.
+
+//Update interface IProductRepository
+public interface IProductRepository
+{
+	IQueryable<Product> Products { get; }
+	void SaveProduct(Product product); //this piece of code
+}
+
+//Add this method to class EFProductRepository 
+public void SaveProduct(Product product)
+{
+	if (product.ProductID == 0)
+	{
+		context.Products.Add(product);
+	}
+	else
+	{
+		Product dbEntry = context.Products.Find(product.ProductID);
+
+		if (dbEntry != null)
+		{
+			dbEntry.Name = product.Name;
+			dbEntry.Description = product.Description;
+			dbEntry.Price = product.Price;
+			dbEntry.Category = product.Category;
+		}
+	}
+	context.SaveChanges();
+}
+		
+//Now, we have to add [HttpPost] action for Edit in order to finish with Edit.
+//Add, new Edit action in controller Admin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
