@@ -32,7 +32,7 @@ namespace SportsStore.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 repository.SaveProduct(product);
-                TempData["message"] = string.Format("{0} has been saved", product.Name);
+                
                 return RedirectToAction("Index");
             }
             else

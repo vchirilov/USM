@@ -234,10 +234,43 @@ public void SaveProduct(Product product)
 		
 //Now, we have to add [HttpPost] action for Edit in order to finish with Edit.
 //Add, new Edit action in controller Admin
+[HttpPost]
+public ActionResult Edit(Product product)
+{
+	if (ModelState.IsValid)
+	{
+		repository.SaveProduct(product);
+		
+		return RedirectToAction("Index");
+	}
+	else
+	{
+		// there is something wrong with the data values
+		return View(product);
+	}
+}
 
+//Adding Model Validation
+//Model validation is added in model class. DON'T CONFUSE MODEL VALIDATION ATTRIBUTES WITH MODEL METADATA
+public class Product
+{
+	[HiddenInput(DisplayValue = false)]
+	public int ProductID { get; set; }
 
+	[Required(ErrorMessage = "Please enter a product name")]
+	public string Name { get; set; }
 
+	[DataType(DataType.MultilineText)]
+	[Required(ErrorMessage = "Please enter a description")]
+	public string Description { get; set; }
 
+	[Required]
+	[Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive price")]
+	public decimal Price { get; set; }
+
+	[Required(ErrorMessage = "Please specify a category")]
+	public string Category { get; set; }
+}
 
 
 
