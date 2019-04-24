@@ -273,9 +273,28 @@ public class Product
 }
 
 
+//Creating New Products
 
+//Add new action called Create
+public ViewResult Create()
+{
+	return View("Edit", new Product()); //As you see Edit view is reused
+}
 
+//Edit view uses @Html.BeginForm() helper method
 
+@model SportsStore.Domain.Model.Product
+@{
+    ViewBag.Title = "Admin: Edit " + @Model.Name;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>Edit @Model.Name</h1>
+@using (Html.BeginForm("Edit", "Admin")) // this piece of code
+{
+    @Html.EditorForModel()
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel and return to List", "Index")
+} 
 
 
 
