@@ -15,6 +15,11 @@ namespace SportsStore.Models.Abstract
             new Product { Name = "Running shoes", Price = 95 }
             }.AsQueryable();
 
+        public Product DeleteProduct(int productID)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SaveProduct(Product product)
         {
             throw new NotImplementedException();
