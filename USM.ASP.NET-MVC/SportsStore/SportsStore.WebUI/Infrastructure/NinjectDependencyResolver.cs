@@ -1,5 +1,6 @@
 ﻿using Ninject;
 using SportsStore.Models.Abstract;
+using SportsStore.WebUI.Infrastructure.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,7 @@ namespace SportsStore.WebUI.Infrastructure
         private void AddBindings()
         {
             kernel.Bind<IProductRepository>().To<EFProductRepository>();
+            kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
     }
 }
