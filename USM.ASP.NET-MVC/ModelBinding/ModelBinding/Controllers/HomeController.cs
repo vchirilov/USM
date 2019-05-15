@@ -44,5 +44,11 @@ namespace ModelBinding.Controllers
             names = names ?? new string[0];
             return View(names);
         }
+
+        public ActionResult Addresses(AddressSummary[] adresses)
+        {
+            adresses = adresses ?? new AddressSummary[0];
+            return View(adresses);
+        }
     }
 }

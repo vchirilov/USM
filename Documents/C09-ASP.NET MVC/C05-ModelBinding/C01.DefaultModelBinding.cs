@@ -254,3 +254,72 @@ else
 	<div><label>3:</label><input id="names" name="names" type="text" value="" /></div>
 	<button type="submit">Submit</button>
 </form>
+
+
+//Let's apply to our AddressSummary custom class
+
+//Add new action called Addresses
+public ActionResult Addresses(AddressSummary[] adresses)
+{
+	adresses = adresses ?? new AddressSummary[0];
+	return View(adresses);
+}
+
+//Add view for action above
+@using ModelBinding.Models
+
+@model AddressSummary[]
+@{
+    ViewBag.Title = "Address";
+}
+<h2>Addresses</h2>
+@if (Model.Length == 0)
+{
+    using (Html.BeginForm())
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            <fieldset>
+                <legend>Address @(i + 1)</legend>
+                <div><label>City:</label>@Html.Editor("[" + i + "].City")</div>
+                <div><label>Country:</label>@Html.Editor("[" + i + "].Country")</div>
+            </fieldset>
+        }
+        <button type="submit">Submit</button>
+    }
+}
+else
+{
+    foreach (AddressSummary str in Model)
+    {
+        <p>@str.City, @str.Country</p>
+    }
+    @Html.ActionLink("Back", "Address");
+}
+
+//This view gerenares this html code
+
+...
+<fieldset>
+    <legend>Address 1</legend>
+    <div>
+        <label>City:</label>
+        <input class="text-box single-line" name="[0].City" type="text" value="" />
+    </div>
+    <div>
+        <label>Country:</label>
+        <input class="text-box single-line" name="[0].Country" type="text" value="" />
+    </div>
+</fieldset>
+<fieldset>
+    <legend>Address 2</legend>
+    <div>
+        <label>City:</label>
+        <input class="text-box single-line" name="[1].City" type="text" value="" />
+    </div>
+    <div>
+        <label>Country:</label>
+        <input class="text-box single-line" name="[1].Country" type="text" value="" />
+    </div>
+</fieldset>
+...
