@@ -296,8 +296,37 @@ public ViewResult Create()
     @Html.ActionLink("Cancel and return to List", "Index")
 } 
 
+//Deleting Products
 
+//Add new method in interface IProductRepository
+public interface IProductRepository
+{
+	IQueryable<Product> Products { get; }
+	void SaveProduct(Product product);
+	Product DeleteProduct(int productID);
+}
 
+//Add implementation in class EFProductRepository
+public Product DeleteProduct(int productID)
+{
+	Product dbEntry = context.Products.Find(productID);
+	
+	if (dbEntry != null)
+	{
+		context.Products.Remove(dbEntry);
+		context.SaveChanges();
+	}
+	return dbEntry;
+}
+
+//And, finally add action method Delete
+[HttpPost]
+public ActionResult Delete(int productId)
+{
+	Product deletedProduct = repository.DeleteProduct(productId);
+
+	return RedirectToAction("Index");
+}
 
 
 
