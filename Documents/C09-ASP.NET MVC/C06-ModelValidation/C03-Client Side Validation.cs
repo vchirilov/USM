@@ -18,6 +18,15 @@ turn, relies configures the jQuery Validation library, which does the actual val
 	<add key="UnobtrusiveJavaScriptEnabled" value="true"/>
 </appSettings>
 
+//Add one more validation to field ClientName of Appointment class and you'll see as it dynamically added attributes
+//data-val-length="The field ClientName must be a string with a minimum length of 3 and a maximum length of 10." 
+//data-val-length-max="10" 
+//data-val-length-min="3"
+
+[Required]
+[StringLength(10, MinimumLength = 3)] //this piece of code
+public string ClientName { get; set; }
+
 
 //In order to download java script library that deal with client validation, add this bundle in _Layout.cshtml
 ...
