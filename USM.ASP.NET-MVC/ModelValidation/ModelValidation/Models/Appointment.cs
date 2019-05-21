@@ -10,6 +10,7 @@ namespace ModelValidation.Models
     public class Appointment
     {
         [Required]
+        [StringLength(10, MinimumLength = 3)]
         public string ClientName { get; set; }
 
         [DataType(DataType.Date)]

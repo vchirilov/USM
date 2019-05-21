@@ -11,9 +11,17 @@ turn, relies configures the jQuery Validation library, which does the actual val
 
 //Enabling and Disabling Client-Side Validation
 
-//Client-side validation is controlled by two settings in the Web.config file
+//Client-side validation is controlled by two settings in the Web.config file. These settings are responsible for setting field attributes
 
 <appSettings>
 	<add key="ClientValidationEnabled" value="true"/>
 	<add key="UnobtrusiveJavaScriptEnabled" value="true"/>
 </appSettings>
+
+
+//In order to download java script library that deal with client validation, add this bundle in _Layout.cshtml
+...
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")		//this piece of code
+@RenderSection("scripts", required: false)
+...
