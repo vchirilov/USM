@@ -98,4 +98,136 @@ public class ReservationRepository : IReservationRepository
 	}
 }
 
-//There is no persistence of changes in this repository. Adding persistance through EntityFramework would be a homework
+//There is no persistence of changes in this repository. Adding persistance through EntityFramework would be a homework.
+
+//Now, let's add a normal MVC controller just for default page of the application. Let's use existing one which is Home
+public class HomeController : Controller
+{
+	public ActionResult Index()
+	{
+		ViewBag.Title = "Home Page";
+
+		return View();
+	}
+}
+
+//Add view for Index action.
+@{ ViewBag.Title = "Index";}
+
+@section scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}
+<div id="summaryDisplay" class="display">
+    <h4>Reservations</h4>
+    <table>
+        <thead>
+            <tr>
+                <th class="selectCol"></th>
+                <th class="nameCol">Name</th>
+                <th class="locationCol">Location</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <tr><td colspan="3">The data is loading</td></tr>
+        </tbody>
+    </table>
+    <div id="buttonContainer">
+        <button id="refresh">Refresh</button>
+        <button id="add">Add</button>
+        <button id="edit">Edit</button>
+        <button id="delete">Delete</button>
+    </div>
+</div>
+<div id="addDisplay" class="display">
+    <h4>Add New Reservation</h4>
+    @{
+        AjaxOptions addAjaxOpts = new AjaxOptions
+        {
+            // options will go here
+        };
+    }
+    @using (Ajax.BeginForm(addAjaxOpts))
+    {
+        @Html.Hidden("ReservationId", 0)
+        <p><label>Name:</label>@Html.Editor("ClientName")</p>
+        <p><label>Location:</label>@Html.Editor("Location")</p>
+        <button type="submit">Submit</button>
+    }
+</div>
+<div id="editDisplay" class="display">
+    <h4>Edit Reservation</h4>
+    <form id="editForm">
+        <input id="editReservationId" type="hidden" name="ReservationId" />
+        <p><label>Name:</label><input id="editClientName" name="ClientName" /></p>
+        <p><label>Location:</label><input id="editLocation" name="Location" /></p>
+    </form>
+    <button id="submitEdit" type="submit">Save</button>
+</div>
+
+//Add some CSS updates to make the page a bit more pretty. Go to Content/Site.css and add these piece of CSS
+table {
+    margin: 10px 0;
+}
+
+th {
+    text-align: left;
+}
+
+.nameCol {
+    width: 100px;
+}
+
+.locationCol {
+    width: 100px;
+}
+
+.selectCol {
+    width: 30px;
+}
+
+.display {
+    float: left;
+    border: thin solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
+.display label {
+	display: inline-block;
+	width: 100px;
+}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
