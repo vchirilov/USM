@@ -198,3 +198,42 @@ bundles.Add(new ScriptBundle("~/bundles/ajax").Include(
 
 //Now, add in MakeBooking view layout page as CustomLayout
 Layout = "~/Views/Shared/_CustomLayout.cshtml";
+
+//At the end use this statement
+@section scripts {
+<script src="~/Scripts/Home/MakeBooking.js" type="text/javascript"></script>
+}
+
+//Run the application (and test with CSS how the page changes).
+
+//Creating the API Controller
+public class ReservationController : ApiController
+{
+	IReservationRepository repo = ReservationRepository.getRepository();
+	
+	public IEnumerable<Reservation> GetAllReservations()
+	{
+		return repo.GetAll();
+	}
+	public Reservation GetReservation(int id)
+	{
+		return repo.Get(id);
+	}
+	public Reservation PostReservation(Reservation item)
+	{
+		return repo.Add(item);
+	}
+	public bool PutReservation(Reservation item)
+	{
+		return repo.Update(item);
+	}
+	public void DeleteReservation(int id)
+	{
+		repo.Remove(id);
+	}
+}
+
+//Run the application by typing in URL \api\values, \api\reservation
+
+//Understanding How the API Controller Works
+//Routing configuration is kept in a separate configuration file /App_Start/WebApiConfig.cs
