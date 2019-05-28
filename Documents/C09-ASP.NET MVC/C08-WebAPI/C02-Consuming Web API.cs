@@ -31,14 +31,43 @@ $(document).ready(function () {
                 getData();
                 break;
             case "delete":
+                $.ajax({
+                    type: "DELETE",
+                    url: "/api/reservation/" + selectedRadio.attr('value'),
+                    success: function (data) {
+                        selectedRadio.closest('tr').remove();
+                    }
+                });
                 break;
             case "add":
                 selectView("add");
                 break;
             case "edit":
-                selectView("edit");
+                $.ajax({
+                    type: "GET",
+                    url: "/api/reservation/" + selectedRadio.attr('value'),
+                    success: function (data) {
+                        $('#editReservationId').val(data.ReservationId);
+                        $('#editClientName').val(data.ClientName);
+                        $('#editLocation').val(data.Location);
+                        selectView("edit");
+                    }
+                });
                 break;
             case "submitEdit":
+                $.ajax({
+                    type: "PUT",
+                    url: "/api/reservation/" + selectedRadio.attr('value'),
+                    data: $('#editForm').serialize(),
+                    success: function (result) {
+                        if (result) {
+                            var cells = selectedRadio.closest('tr').children();
+                            cells[1].innerText = $('#editClientName').val();
+                            cells[2].innerText = $('#editLocation').val();
+                            selectView("summary");
+                        }
+                    }
+                });
                 break;
         }
     });
