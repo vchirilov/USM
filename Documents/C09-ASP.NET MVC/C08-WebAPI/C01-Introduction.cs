@@ -98,7 +98,40 @@ public class ReservationRepository : IReservationRepository
 	}
 }
 
-//There is no persistence of changes in this repository. Adding persistance through EntityFramework would be a homework.
+//There is no persistence of changes in this repository. Adding persistence through EntityFramework would be a homework.
+
+
+//Creating the API Controller
+public class ReservationController : ApiController
+{
+	IReservationRepository repo = ReservationRepository.getRepository();
+	
+	public IEnumerable<Reservation> GetAllReservations()
+	{
+		return repo.GetAll();
+	}
+	public Reservation GetReservation(int id)
+	{
+		return repo.Get(id);
+	}
+	public Reservation PostReservation(Reservation item)
+	{
+		return repo.Add(item);
+	}
+	public bool PutReservation(Reservation item)
+	{
+		return repo.Update(item);
+	}
+	public void DeleteReservation(int id)
+	{
+		repo.Remove(id);
+	}
+}
+
+//Run the application by typing in URL \api\values, \api\reservation
+
+//Understanding How the API Controller Works. Routing configuration is kept in a separate configuration file ~/App_Start/WebApiConfig.cs
+
 
 //Now, let's add a normal MVC controller just for default page of the application. Let's use existing one which is Home
 public class HomeController : Controller
