@@ -130,7 +130,12 @@ namespace Test
     }
 }
 
+//Run unit test from TestExplorer in Visual Studio 
 
-//TestFixture:-The class that is to be test using Nunit should be decorated with TextFixture.
+//TestFixture: The class that is to be test using Nunit should be decorated with TextFixture.
 
-//Test:-This attribute identify the method to be tested.If we will not write this attribute then we cant be able to identify the test in Testexplorer.
+//Test: This attribute identify the method to be tested.If we will not write this attribute then we cant be able to identify the test in Testexplorer.
+
+//SetUp: This attribute is used when you want to execute a piece of code in each test case.
+
+//TearDown: After completely executing each test if you want to execute a piece of code then you have to write this code under TearDown attribute.
